@@ -13,6 +13,7 @@ class App extends Component {
     const targets = ["world", "Kanae", "Yunika"];
 
     return (
+      // <p>Foo</p> ツリー階層のトップレベルは1つにする必要があるためエラー
       <div className="App">
         <header className="App-header">
           {
