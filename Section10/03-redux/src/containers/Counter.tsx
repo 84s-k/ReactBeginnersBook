@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+// import { Dispatch } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import { add, decrement, increment } from '../actions/counter';
 import Counter from '../components/Counter';
@@ -19,10 +20,12 @@ const mapStateToProps = (state: CounterState): StateProps => ({
   count: state.count,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  add: amount => dispatch(add(amount)),
-  decrement: () => dispatch(decrement()),
-  increment: () => dispatch(increment()),
-});
+// const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+//   add: amount => dispatch(add(amount)),
+//   decrement: () => dispatch(decrement()),
+//   increment: () => dispatch(increment()),
+// });
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
+  bindActionCreators({ add, decrement, increment }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
